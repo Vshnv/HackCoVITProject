@@ -34,7 +34,7 @@ public class ClientQueryBuilder {
 
 
 
-    public  JSONObject[] fetchData(String url){
+    public  DoctorData[] fetchData(String url){
         if(params.isEmpty())return null;
         Connection.Response response =
                 null;
