@@ -1,7 +1,7 @@
 package com.rocketmail.vaishnavanil.hackcovit.server;
 
 
-import com.rocketmail.vaishnavanil.hackcovit.enums.State;
+
 import spark.Request;
 import spark.Response;
 import spark.Route;
@@ -37,7 +37,7 @@ public class RESTServer {
                 if(registrationID!=null)query.setRegID(registrationID);
                 if(registrationYear!=null)query.setRegYear(registrationYear);
                 if(name!=null)query.setDoctorName(name);
-                if(state!=null)query.setState(State.DELHI);
+                if(state!=null)query.setState(state);
                 return query.execute();
             }
         });

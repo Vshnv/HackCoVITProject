@@ -1,6 +1,5 @@
 package com.rocketmail.vaishnavanil.hackcovit.server;
 
-import com.rocketmail.vaishnavanil.hackcovit.enums.State;
 import org.json.JSONObject;
 
 import java.sql.*;
@@ -15,15 +14,15 @@ public class QueryBuilder {
         return this;
     }
     public QueryBuilder setRegID(String ID){
-        params.put("rID",ID);
+        params.put("registrationNo",ID);
         return this;
     }
     public QueryBuilder setRegYear(String year){
-        params.put("rY", year);
+        params.put("regYear", year);//ADD AS EXTRA TO DB FROM YEAR   !!IMPORTANT TODO::
         return this;
     }
-    public QueryBuilder setState(State state){
-        params.put("state",state.getDBVal());
+    public QueryBuilder setState(String state){
+        params.put("state",state);
         return this;
     }
 

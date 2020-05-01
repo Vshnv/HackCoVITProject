@@ -1,15 +1,43 @@
 package com.rocketmail.vaishnavanil.hackcovit.enums;
 
+import org.apache.commons.text.WordUtils;
+
 public enum State {
-    DELHI(1,"Delhi");
-    private int id;
-    private String dbVal;
-    State(int id, String name){
-        this.id = id;
-        dbVal = name;
+    ANDHRA_PRADESH,
+    ARUNACHAL_PRADESH,
+    ASSAM,
+    BIHAR,
+    DELHI,
+    GOA,
+    GUJARAT,
+    HARYANA,
+    HIMACHAL_PRADESH,
+    JAMMU_n_KASHMIR,
+    JHARKHAND,
+    KARNATAKA,
+    MADHYA_PRADESH,
+    MAHARASHTRA,
+    MANIPUR,
+    MIZORAM,
+    NAGALAND,
+    ORISSA,
+    PUNJAB,
+    RAJASTHAN,
+    SIKKIM,
+    TAMIL_NADU,
+    TELANGANA,
+    KERALA,
+    TRIPURA,
+    UTTARAKHAND,
+    UTTAR_PRADESH,
+    WEST_BENGAL
+    ;
+
+    public String getCouncilName() {
+        return  fixCase(name().replace("KERALA","Travancore Cochin").replace("_n_"," & ").replace("_"," ")).trim() + " Medical Council";
     }
 
-    public String getDBVal() {
-        return dbVal;
+    private static String fixCase(String s){
+        return WordUtils.capitalizeFully(s);
     }
 }

@@ -18,15 +18,15 @@ public class ClientQueryBuilder {
         return this;
     }
     public ClientQueryBuilder setRegID(String ID){
-        params.put("rID",ID);
+        params.put("regID",ID);
         return this;
     }
     public ClientQueryBuilder setRegYear(String year){
-        params.put("rY", year);
+        params.put("regY", year);
         return this;
     }
     public ClientQueryBuilder setState(State state){
-        params.put("state",state.getDBVal());
+        params.put("state",state.getCouncilName());
         return this;
     }
 
