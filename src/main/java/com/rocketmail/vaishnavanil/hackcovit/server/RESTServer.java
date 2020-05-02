@@ -2,6 +2,9 @@ package com.rocketmail.vaishnavanil.hackcovit.server;
 
 
 
+
+
+import com.rocketmail.vaishnavanil.hackcovit.server.scraper.ScrapeUtil;
 import spark.Request;
 import spark.Response;
 import spark.Route;
@@ -10,13 +13,14 @@ import static spark.Spark.*;
 
 public class RESTServer {
     public static void main(String[] args) {
-        new RESTServer();
+        new ScrapeUtil().scrapeData();
+        //new RESTServer();
 
     }
 
     public RESTServer(){
         setPort(1234);
-        get(new Route("/hcvREST/doctors") {
+        get("/hcvREST/doctors",new Route() {
             @Override
             public Object handle(Request request, Response response) {
                 String registrationID = request.queryParams("regID");

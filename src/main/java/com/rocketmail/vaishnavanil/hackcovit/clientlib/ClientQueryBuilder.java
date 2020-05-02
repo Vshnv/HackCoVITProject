@@ -6,6 +6,7 @@ import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
+import javax.print.Doc;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -53,7 +54,7 @@ public class ClientQueryBuilder {
             DoctorData[] result = new DoctorData[obj.length()];
             int index = 0;
             for(String uuid:obj.keySet()){
-                result[index++] = (DoctorData) obj.getJSONObject(uuid);
+                result[index++] = new DoctorData(obj.getJSONObject(uuid).toString());
             }
             return result;
         } catch (IOException e) {

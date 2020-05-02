@@ -3,6 +3,10 @@ package com.rocketmail.vaishnavanil.hackcovit.clientlib;
 import org.json.JSONObject;
 
 public class DoctorData extends JSONObject {
+
+    public DoctorData(String s){
+        super(s);
+    }
     public String getDoctorName(){
         return getString("firstName");
     }
