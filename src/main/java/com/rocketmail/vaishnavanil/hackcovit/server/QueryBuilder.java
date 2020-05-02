@@ -1,5 +1,6 @@
 package com.rocketmail.vaishnavanil.hackcovit.server;
 
+import com.rocketmail.vaishnavanil.hackcovit.server.scraper.ScrapeUtil;
 import org.json.JSONObject;
 
 import java.sql.*;
@@ -120,6 +121,25 @@ public class QueryBuilder {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    public static void checkTable(){
+        Connection c = getConnection();
+        try {
+            PreparedStatement statement = c.prepareStatement("CREATE TABLE IF NOT EXISTS doctordata (firstName Text,regDate Text,parentName Text,birthDateStr Text,doctorDegree Text,university Text,yearOfPassing Text,registrationNo Text,smcName Text,address Text,regYear Text)");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            PreparedStatement statement = c.prepareStatement("SELECT COUNT(*) FROM doctordata");
+            ResultSet res = statement.executeQuery();
+            if(res.getInt(0)==0){
+                new ScrapeUtil().scrapeData(2001,1000);//TODO::  TEST VALUES   - Small scale
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }
