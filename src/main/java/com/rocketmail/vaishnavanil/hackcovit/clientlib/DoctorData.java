@@ -8,34 +8,34 @@ public class DoctorData extends JSONObject {
         super(s);
     }
     public String getDoctorName(){
-        return getString("firstName");
+        return String.valueOf(get("firstName"));
     }
     public String getRegistrationDate(){
-        return getString("regDate");
+        return String.valueOf(get("regDate"));
     }
 
     public String getParentName(){
-        return getString("parentName");
+        return String.valueOf(get("parentName"));
     }
     public String getBirthDate(){
-        return getString("birthDateStr");
+        return String.valueOf(get("birthDateStr"));
     }
     public String getDegree(){
-        return getString("doctorDegree");
+        return String.valueOf(get("doctorDegree"));
     }
     public String getUniversity(){
-        return getString("university");
+        return String.valueOf(get("university"));
     }
     public String getYearOfPassing(){
-        return getString("yearOfPassing");
+        return String.valueOf(get("yearOfPassing"));
     }
     public String getRegistrationNumber(){
-        return getString("registrationNo");
+        return String.valueOf(get("registrationNo"));
     }
     public String getStateCouncilName(){
-        return getString("smcName");
+        return String.valueOf(get("smcName"));
     }
     public String getAddress(){
-        return getString("address");
+        return String.valueOf(get("address"));
     }
 }

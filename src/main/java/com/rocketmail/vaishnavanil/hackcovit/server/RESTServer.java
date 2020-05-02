@@ -13,13 +13,14 @@ import static spark.Spark.*;
 
 public class RESTServer {
     public static void main(String[] args) {
-        new ScrapeUtil().scrapeData();
-        //new RESTServer();
+        //new ScrapeUtil().scrapeData();
+        //new ScrapeUtil().scrapeData();
+        new RESTServer();
 
     }
 
     public RESTServer(){
-        setPort(1234);
+        setPort(80);
         get("/hcvREST/doctors",new Route() {
             @Override
             public Object handle(Request request, Response response) {

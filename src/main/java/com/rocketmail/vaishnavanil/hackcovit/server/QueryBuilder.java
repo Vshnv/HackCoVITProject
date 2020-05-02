@@ -10,7 +10,7 @@ import java.util.UUID;
 public class QueryBuilder {
     Map<String,String> params = new HashMap<String, String>();
     public QueryBuilder setDoctorName(String name){
-        params.put("name",name);
+        params.put("firstName",name);
         return this;
     }
     public QueryBuilder setRegID(String ID){
@@ -22,7 +22,7 @@ public class QueryBuilder {
         return this;
     }
     public QueryBuilder setState(String state){
-        params.put("state",state);
+        params.put("smcName",state);
         return this;
     }
 
@@ -62,6 +62,13 @@ public class QueryBuilder {
         StringBuilder statement = new StringBuilder("SELECT * FROM doctordata WHERE " );
         if(params.isEmpty())return null;
         for(String key:params.keySet()){
+            if(key.equals("firstName")){
+                statement.append(key);
+                statement.append(" LIKE '" );
+                statement.append(params.get(key));
+                statement.append("%'");
+                continue;
+            }
             statement.append(key);
             statement.append("='");
             statement.append(params.get(key));
@@ -79,11 +86,11 @@ public class QueryBuilder {
         }
         return null;
     }
-    static String ip = "-";
-    static  String port = "-";
-    static String dbName = "-";
-    static String userName = "-";
-    static String password = "-";
+    static String ip = "localhost";
+    static  String port = "3306";
+    static String dbName = "hackcovit";
+    static String userName = "root";
+    static String password = "19BCG10015";
 
     public void insert(String firstName, String regDate,String parentName,String birthDateStr,String doctorDegree,String university,String yearOfPassing, String registrationNo, String smcName,String address){
         Connection c = getConnection();
